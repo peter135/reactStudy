@@ -11,7 +11,8 @@ module.exports = (webpackEnv) => {
         entry:'./src/index.js',
         output:{
             filename:'main.js',
-            path:path.resolve(__dirname, 'dist')
+            path:path.resolve(__dirname, '../dist'),
+            // assetModuleFilename: 'asset/[name].[contenthash:8][ext][query]', //资源文件输出目录
         },
         module:{
             rules:[
@@ -43,13 +44,10 @@ module.exports = (webpackEnv) => {
                },
                {
                    test: /\.(png|svg|jpg|jpeg|gif)$/,
-                   type: 'asset', 
+                   type: 'asset/resource', 
                    generator: {
-                     filename: 'image/[name].[contenthash:8][ext][query]'
-                   },
-                   // output: {
-                   //     assetModuleFilename: 'asset/[name].[contenthash:8][ext][query]', 
-                   //   }                  
+                     filename: 'img/[name].[contenthash:8][ext][query]' //局部资源输出目录
+                   },                 
                },
                //加载fonts字体或者其他资源
                {
@@ -63,21 +61,10 @@ module.exports = (webpackEnv) => {
                        loader: 'babel-loader',
                        options: {
                          presets: [
-                            "@babel/preset-env", "@babel/preset-react",                      
-                            //   "@babel/preset-env",
-                            //  {
-                            //      "useBuiltIns": "usage",
-                            //      "corejs": 3,
-                            //  }
-
+                           "@babel/preset-env", "@babel/preset-react",                      
                          ],
                          plugins: [
-                            '@babel/plugin-transform-runtime',
-                              // {
-                              //   "helpers": true, 
-                              //   "corejs": 3,
-                              //   "regenerator": true,
-                              // }                           
+                            '@babel/plugin-transform-runtime',                         
                          ],
                        }
                      },
@@ -88,7 +75,14 @@ module.exports = (webpackEnv) => {
             new HtmlWebpackPlugin({
                 template:path.resolve(__dirname,'../public/index.ejs')
             })
-        ]
+        ],
+        resolve: {
+          alias: {
+            '@': path.resolve(__dirname, '../src'),
+            '~': path.resolve(__dirname, '../img'),
+            // 下面可以继续新增别名
+          }
+        }
     };
 
 }
