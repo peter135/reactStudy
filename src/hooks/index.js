@@ -1,25 +1,7 @@
-import React, {useState }from 'react';
+import {Counter} from '@/hooks/useState/counter.js';
+import GlobalStats_ from '@/hooks/useEffect/index.js';
 
-export const Counter = () => {
-    const [count,setCount] = useState(0);
-
-    function handleAlertClick() {
-        setTimeout(()=>{
-            alert('you clicked on:'+count)
-        },3000)
-
-    }
-
-    return(
-        <div>
-            <p>You clicked {count} times</p>
-            <button onClick={() => setCount(count+1)}>
-                Click me
-            </button>
-            <button onClick={handleAlertClick}>
-                Show alert
-            </button>
-        </div>
-    )
-
+export {
+    Counter,
+    GlobalStats_
 }

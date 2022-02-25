@@ -6,7 +6,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
-import {Counter} from '@/hooks/index.js';
+import App from '@/app';
+import {Counter,GlobalStats_ } from '@/hooks/index.js';
 
-ReactDOM.render(<Counter />, document.getElementById('root'));
+ReactDOM.render(<GlobalStats_ />, document.getElementById('root'));
