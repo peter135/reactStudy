@@ -61,10 +61,36 @@ module.exports = (webpackEnv) => {
                        loader: 'babel-loader',
                        options: {
                          presets: [
-                           "@babel/preset-env", "@babel/preset-react",                      
+                          [
+                            "@babel/preset-env",
+                            {
+                              "modules":"commonjs",
+                              "targets": {
+                                "chrome": "67"
+                              },
+                              "useBuiltIns": "usage",
+                              "corejs": 2
+                            }
+                          ],
+                          "@babel/preset-react"                     
                          ],
                          plugins: [
-                            '@babel/plugin-transform-runtime',                         
+                          [
+                            "@babel/plugin-transform-runtime",
+                            {
+                              "absoluteRuntime": false,
+                              "helpers": true,
+                              "regenerator": true,
+                              "useESModules": false
+                            }
+                          ],
+                          [
+                            "@babel/plugin-proposal-decorators",
+                            {
+                              "legacy": true,
+                              "loose": true
+                            }
+                          ],                        
                          ],
                        }
                      },
