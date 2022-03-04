@@ -40,6 +40,13 @@ module.exports = (webpackEnv) => {
                                },
                              }
                      },
+
+                     {
+                             loader: 'px2rem-loader',
+                             options: {
+                               remUnit:75
+                             }
+                     }
                    ]
                },
                {
