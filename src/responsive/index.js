@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 const viewportContext = React.createContext({})
 
-const ViewportProvider = ({children}) => {
+export const ViewportProvider = ({children}) => {
 
     const [width,setWidth] = React.useState(window.innerWidth)
     const [height,setHeight] = React.useState(window.innerHeight)
@@ -27,25 +27,8 @@ const ViewportProvider = ({children}) => {
 
 }
 
-const useViewport = () => {
+export const useViewport = () => {
     const { width, height } = React.useContext(viewportContext);
     return { width, height };
 }
 
-
-const App = () => {
-    return (
-      <ViewportProvider>
-        <AppComponent />
-      </ViewportProvider>
-    );
-}
-
-const MyComponent = () => {
-    const { width } = useViewport();
-    const breakpoint = 620;
-  
-    return width < breakpoint ? <MobileComponent /> : <DesktopComponent />;
-  }
-  
-  

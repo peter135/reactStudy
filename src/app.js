@@ -5,6 +5,8 @@ import Index  from '@/router/index.js';
 import HOCIndex  from '@/hoc/index.js';
 import './index.css'
 import 'lib-flexible'
+import {ViewportProvider, useViewport} from '@/responsive/index.js'
+
 
 //2. 类组件
 class Child extends Component {
@@ -14,16 +16,39 @@ class Child extends Component {
   }
 }
 
+class MobileComponent extends Component {
+  state = {}
+  render() {
+    return <div className="one">手机端显示</div>
+  }
+}
+
+class DesktopComponent extends Component {
+  state = {}
+  render() {
+    return <div className="one">pc端显示</div>
+  }
+}
+
+
+const MyComponent = () => {
+    const { width } = useViewport();
+    const breakpoint = 620;
+  
+    return width < breakpoint ? <MobileComponent /> : <DesktopComponent />;
+  }
+
 class App extends Component {
   render() {
     return (
-      <>
+      <ViewportProvider>
           {/* <GlobalStats_/>
           <MyRCFieldForm />
           <Index/>
-          <HOCIndex/> */}
-          <Child/>
-      </>
+          <HOCIndex/>
+          <Child/> */}
+          <MyComponent/>
+      </ViewportProvider>
         
     );
   }
