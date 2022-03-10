@@ -36,8 +36,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.17.2",
+    "axios": "^0.26.1",
     "lib-flexible": "^0.3.2",
     "px2rem-loader": "^0.1.9",
+    "react-infinite-scroller": "^1.2.5",
     "recharts": "^2.1.9"
   }
 }

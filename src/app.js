@@ -7,6 +7,7 @@ import './index.css'
 import 'lib-flexible'
 import {ViewportProvider, useViewport} from '@/responsive/index.js'
 
+import Scroller from '@/infiniteScroll/index'
 
 //2. 类组件
 class Child extends Component {
@@ -41,15 +42,19 @@ const MyComponent = () => {
 class App extends Component {
   render() {
     return (
-      <ViewportProvider>
-          {/* <GlobalStats_/>
+      // <ViewportProvider>
+      //     <MyComponent/>
+      // </ViewportProvider>
+
+      /* <GlobalStats_/>
           <MyRCFieldForm />
           <Index/>
           <HOCIndex/>
-          <Child/> */}
-          <MyComponent/>
-      </ViewportProvider>
-        
+          <Child/> */
+
+      //无限滚动    
+      <Scroller/>
+
     );
   }
 }
