@@ -8,6 +8,7 @@ import 'lib-flexible'
 import {ViewportProvider, useViewport} from '@/responsive/index.js'
 
 import Scroller from '@/infiniteScroll/index'
+import RoutesPermission from '@/permission/index'
 
 //2. 类组件
 class Child extends Component {
@@ -53,7 +54,10 @@ class App extends Component {
           <Child/> */
 
       //无限滚动    
-      <Scroller/>
+      // <Scroller/>
+
+      //路由鉴权
+      <RoutesPermission/>
 
     );
   }
