@@ -9,6 +9,7 @@ import {ViewportProvider, useViewport} from '@/responsive/index.js'
 
 import Scroller from '@/infiniteScroll/index'
 import RoutesPermission from '@/permission/index'
+import ForwardRefComponent from '@/forwardRef/index'
 
 //2. 类组件
 class Child extends Component {
@@ -43,22 +44,32 @@ const MyComponent = () => {
 class App extends Component {
   render() {
     return (
+
       // <ViewportProvider>
       //     <MyComponent/>
       // </ViewportProvider>
 
-      /* <GlobalStats_/>
-          <MyRCFieldForm />
-          <Index/>
-          <HOCIndex/>
-          <Child/> */
+      // react hooks
+      // <GlobalStats_/>
 
-      //无限滚动    
+      // 表单提交
+      // <MyRCFieldForm />
+
+      // <Index/>
+
+      // 高阶组件
+      // <HOCIndex/>
+
+      // <Child/> 
+
+      // 无限滚动    
       // <Scroller/>
 
-      //路由鉴权
-      <RoutesPermission/>
+      // 路由鉴权
+      // <RoutesPermission/>
 
+      // forwardRef
+      <ForwardRefComponent/>
     );
   }
 }
