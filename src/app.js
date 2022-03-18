@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import {GlobalStats_ } from '@/hooks/index.js';
-import MyRCFieldForm  from '@/forms/myRCFieldForm.js';
-import Index  from '@/router/index.js';
-import HOCIndex  from '@/hoc/index.js';
 import './index.css'
 import 'lib-flexible'
 import {ViewportProvider, useViewport} from '@/responsive/index.js'
 
+import {GlobalStats_ } from '@/hooks/index.js';
+import MyRCFieldForm  from '@/forms/myRCFieldForm.js';
+import Index  from '@/router/index.js';
+import HOCIndex  from '@/hoc/index.js';
+
 import Scroller from '@/infiniteScroll/index'
 import RoutesPermission from '@/permission/index'
 import ForwardRefComponent from '@/forwardRef/index'
+import DebounceThrottle from '@/debounce_throttle/index'
 
 //2. 类组件
 class Child extends Component {
@@ -69,7 +71,11 @@ class App extends Component {
       // <RoutesPermission/>
 
       // forwardRef
-      <ForwardRefComponent/>
+      // <ForwardRefComponent/>
+
+      // 防抖和节流
+      <DebounceThrottle/>
+
     );
   }
 }
