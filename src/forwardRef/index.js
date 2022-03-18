@@ -13,7 +13,7 @@ const SonComponent = forwardRef((props,ref)=>{
     return(
         <>
             <div>   
-                <input type="text" defaultValue={props.value} ref={ref} />
+                <input type="text" defaultValue={props.value}/>
                 <button onClick={() => console.log(ref.current)}>点击打印ref</button>
             </div>
         </>
