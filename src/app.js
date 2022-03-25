@@ -12,6 +12,8 @@ import Scroller from '@/infiniteScroll/index'
 import RoutesPermission from '@/permission/index'
 import ForwardRefComponent from '@/forwardRef/index'
 import DebounceThrottle from '@/debounce_throttle/index'
+import CSSPosition from '@/css_position/index'
+
 
 //2. 类组件
 class Child extends Component {
@@ -74,7 +76,10 @@ class App extends Component {
       // <ForwardRefComponent/>
 
       // 防抖和节流
-      <DebounceThrottle/>
+      // <DebounceThrottle/>
+
+      // css position
+      <CSSPosition/>
 
     );
   }
