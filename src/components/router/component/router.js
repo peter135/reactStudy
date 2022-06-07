@@ -1,5 +1,5 @@
 import React ,{ useState , useEffect ,createContext, useMemo  } from 'react'
-import { createBrowserHistory as createHistory  } from 'history'
+import { createHashHistory as createHistory  } from 'history'
 
 export const RouterContext = createContext()
 export let rootHistory = null

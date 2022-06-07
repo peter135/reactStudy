@@ -56,6 +56,7 @@ module.exports = (webpackEnv) => {
             minify: {
               removeComments: true,
             },
+            favicon:path.resolve(__dirname, '../public/favicon.ico'),
           }),
         ],
         resolve: {

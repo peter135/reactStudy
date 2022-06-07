@@ -1,5 +1,5 @@
 import { routerMiddleware } from 'react-router-redux'
-import createHistory from 'history/createBrowserHistory'
+import createHistory from 'history/createHashHistory'
 import { createStore, applyMiddleware, combineReducers,compose } from 'redux'
 import thunk from 'redux-thunk'
 import * as ListDto from './common/list.dto'
