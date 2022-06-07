@@ -2,6 +2,8 @@ import * as React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { MyPageAction } from './mypage.action'
+import MyRCFieldForm  from '@/components/forms/myRCFieldForm.js';
+
 
 export class MyPage extends React.Component{
   
@@ -12,6 +14,7 @@ export class MyPage extends React.Component{
     //   const {homeDto} = this.props;
       return ( 
         <div className="contents">
+            <MyRCFieldForm />
         </div>
       )
     }

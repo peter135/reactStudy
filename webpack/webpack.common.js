@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (webpackEnv) => {
 
@@ -12,42 +13,12 @@ module.exports = (webpackEnv) => {
         output:{
             filename:'main.js',
             path:path.resolve(__dirname, '../dist'),
-            // assetModuleFilename: 'asset/[name].[contenthash:8][ext][query]', //资源文件输出目录
         },
         module:{
             rules:[
                {
                    test:/.css$/i,
-                   use:[
-                    "style-loader",
-                     "css-loader",
-                     {
-                             // css兼容性处理
-                             loader: 'postcss-loader',
-                             options: {
-                               postcssOptions: {
-                                 plugins: [
-                                   [
-                                     'postcss-preset-env',
-                                     {
-                                       autoprefixer: {
-                                         flexbox: 'no-2009',
-                                       },
-                                       stage: 3,
-                                     },
-                                   ],
-                                 ],
-                               },
-                             }
-                     },
-
-                    //  {
-                    //          loader: 'px2rem-loader',
-                    //          options: {
-                    //            remUnit:75
-                    //          }
-                    //  }
-                   ]
+                   use:["style-loader", "css-loader" ]
                },
                {
                    test: /\.(png|svg|jpg|jpeg|gif)$/,
@@ -56,64 +27,41 @@ module.exports = (webpackEnv) => {
                      filename: 'img/[name].[contenthash:8][ext][query]' //局部资源输出目录
                    },                 
                },
-               //加载fonts字体或者其他资源
                {
-                   exclude: /\.(js|mjs|ejs|jsx|ts|tsx|css|scss|sass|png|svg|jpg|jpeg|gif)$/i,
-                   type: 'asset/resource', 
+                   test: /.ttf|eot|woff2?$/i,
+                   type: 'asset/resource',
+                   generator: {
+                     filename: 'font/[name].[hash:6][ext]'
+                   }
                },
                {
-                   test: /\.js|\.jsx$/,
-                   exclude: /node_modules/,
+                   test: /\.(js|jsx)$/, 
+                   exclude: /(node_modules|bower_components)/, 
                    use: {
-                       loader: 'babel-loader',
-                       options: {
-                         presets: [
-                          [
-                            "@babel/preset-env",
-                            {
-                              "modules":"commonjs",
-                              "targets": {
-                                "chrome": "67"
-                              },
-                              "useBuiltIns": "usage",
-                              "corejs": 2
-                            }
-                          ],
-                          "@babel/preset-react"                     
-                         ],
-                         plugins: [
-                          [
-                            "@babel/plugin-transform-runtime",
-                            {
-                              "absoluteRuntime": false,
-                              "helpers": true,
-                              "regenerator": true,
-                              "useESModules": false
-                            }
-                          ],
-                          [
-                            "@babel/plugin-proposal-decorators",
-                            {
-                              "legacy": true,
-                              "loose": true
-                            }
-                          ],                        
-                         ],
-                       }
-                     },
-               },
+                      loader: 'babel-loader', 
+                      options: { 
+                        presets: ['@babel/preset-env', '@babel/preset-react'], 
+                        plugins: [ '@babel/plugin-transform-runtime', '@babel/plugin-proposal-class-properties', ],
+                      }
+                    }, 
+              },
             ]
         },
         plugins:[
-            new HtmlWebpackPlugin({
-                template:path.resolve(__dirname,'../public/index.ejs')
-            })
+          new CleanWebpackPlugin(),
+          new HtmlWebpackPlugin({
+            template: path.resolve(__dirname,'../public/index.ejs'),
+            filename: 'index.html',
+            inject: 'body',
+            minify: {
+              removeComments: true,
+            },
+          }),
         ],
         resolve: {
           alias: {
             '@': path.resolve(__dirname, '../src'),
             '~': path.resolve(__dirname, '../img'),
-            // 下面可以继续新增别名
           }
         }
     };
