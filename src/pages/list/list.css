@@ -1,0 +1,90 @@
+.list_area {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+  
+.list_area .title {
+  background-color:  #28262a;
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  display: flex;
+  align-items: center;
+  min-height:30px;
+}
+
+.list_area .title span {
+  flex:1;
+}
+
+.list_area .title .fas {
+  width: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.list_area .search {
+  min-height: 50px;
+  flex:1;
+  margin: 5px;
+  display: flex;
+}
+
+.list_area .search .fas {
+  position: absolute;
+  margin-top: 16px;
+  margin-left: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.list_area .search input {
+  flex: 1 1;
+  padding: 5px 5px 5px 35px;
+  border: solid 1px grey;
+  border-radius: 5px;
+  max-height: 40px;
+  font-size: 16px;
+  margin: 5px 0 5px 0;
+}
+
+.list_area .list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.list_area .list li {
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding:10px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.list_area .list span.detail_text {
+  flex:1;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  text-overflow: nowrap;
+}
+
+.list_area .each_detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom:solid 1px grey;
+}
+
+
+.list_area .each_detail:hover
+{
+  background-color: rgba(56, 166, 229,1);
+  color:#3c3c3c;
+}

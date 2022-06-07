@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  overflow-y: auto;
+  color:#3c3c3c;
+  background-color:#fefefe;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.header {
+    background: #29262B;
+    padding: 15px 15px 15px 0px;
+    font-size: 20px;
+    color: #FFFFFF;
+    height: 5vh;
+    font-weight: bold;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    border-bottom: solid 1px #fefefe;
+    align-items: center;
+}
+
+.header .header_content {
+  margin-left: 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.header .header_content .header_content_profile {
+  display: flex;
+  flex-direction: row-reverse;
+  max-width: 400px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header .header_content .header_content_profile .name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.header .header_content .header_content_profile .address {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.header .header_content .header_content_profile > * {
+  margin-right: 15px;
+}
+
+.header .header_content .header_content_profile span {
+  font-size: 18px;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  -ms-scroll-limit: 0 0 0 0;
+}
+
+.contents .body {
+  display: flex;
+  flex-direction: row;
+  flex:1;
+  height:calc(100vh - 70px);
+}
+
+.contents_area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: inherit;
+}
+
+.contents .sidebar{
+  width: 80px;
+  background: #29262B;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: space-between;
+  border-right: solid 1px white;
+  height:100vh;
+}
+
+.contents .sidebar .sidebar_menu {
+  list-style-type: none;
+  padding: 0;
+  width: 100px;
+}
+
+.contents .sidebar .sidebar_menu .sidebar_menu_item {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  cursor: pointer;
+}
+
+.contents .sidebar .sidebar_menu .sidebar_menu_item:hover {
+  background-color: rgba(56, 166, 229,1);
+}
+
+.contents .sidebar .sidebar_menu .sidebar_menu_item.active {
+  background-color: rgba(56, 166, 229,1);
+}
+
+.contents .sidebar .sidebar_menu .icon {
+  width: 50px;
+  height: 50px;
+}
