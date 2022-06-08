@@ -1,15 +1,12 @@
 import * as React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Route, Switch } from 'react-router-dom'
 import { NavigationAction } from './navigation.action'
-import { ListPageContainer } from '../list/list.page'
-import { MyPageContainer } from '../mypage/mypage.page'
 import './navigation.css'
 
 import personImg from '../../assets/img/person.png'
 import listImg from '../../assets/img/list.png'
-import Main from '@/router/index'
+import { Pages } from '@/router/index'
 
 let address = '地址123';
 let name = '用户123';
@@ -53,7 +50,7 @@ export class NavigationPage extends React.Component {
               </div>
             </div>
             <div className="contents_area">
-                <Main/>
+              <Pages/>
             </div>
           </div>
         </div>
