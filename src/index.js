@@ -4,6 +4,7 @@ import { Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store,history } from './initData'
 import { Main } from './router/index'
+import "./index.css"
 
 ReactDOM.render(
   <Provider store={store}>

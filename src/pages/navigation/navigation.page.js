@@ -2,7 +2,7 @@ import * as React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { NavigationAction } from './navigation.action'
-import './navigation.css'
+import './navigation.scss'
 
 import personImg from '../../assets/img/person.png'
 import listImg from '../../assets/img/list.png'

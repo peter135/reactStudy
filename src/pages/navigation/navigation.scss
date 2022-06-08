@@ -1,0 +1,108 @@
+.contents {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  -ms-scroll-limit: 0 0 0 0;
+     .header {
+       background: #29262B;
+       padding: 15px 15px 15px 0px;
+       font-size: 20px;
+       color: #FFFFFF;
+       height: 5vh;
+       font-weight: bold;
+       display: -ms-flexbox;
+       display: flex;
+       -ms-flex-flow: row;
+       flex-flow: row;
+       border-bottom: solid 1px #fefefe;
+       align-items: center;
+
+       .header_content {
+        margin-left: 10px;
+        flex-grow: 1;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+           .header_content_profile {
+             display: flex;
+             flex-direction: row-reverse;
+             max-width: 400px;
+             justify-content: flex-start;
+             align-items: center;
+                .name {
+                 overflow: hidden;
+                 white-space: nowrap;
+                 text-overflow: ellipsis;
+               }
+
+               .address {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
+
+              > * {
+                margin-right: 15px;
+              }
+              
+              span {
+                font-size: 18px;
+              }
+           }
+        }
+
+     }
+
+     .body {
+      display: flex;
+      flex-direction: row;
+      flex:1;
+      height:calc(100vh - 70px);
+         .contents_area {
+           flex: 1;
+           display: flex;
+           flex-direction: column;
+           min-height: inherit;
+         }
+         .sidebar{
+           width: 45px;
+           background: #29262B;
+           display: flex;
+           flex-flow: row wrap;
+           justify-content: center;
+           align-content: space-between;
+           border-right: solid 1px white;
+           height:100vh;
+           .sidebar_menu {
+            list-style-type: none;
+            padding: 0;
+            width: 45px;
+            .sidebar_menu_item {
+              display: flex;
+              flex-flow: column nowrap;
+              justify-content: center;
+              align-items: center;
+              height: 45px;
+              cursor: pointer;
+              &:hover {
+                background-color: rgba(56, 166, 229,1);
+              }
+
+              &.active {
+                background-color: rgba(56, 166, 229,1);
+              }
+              
+              .icon {
+                width: 20px;
+                height: 20px;
+              }
+
+            }
+          }
+         }
+    }
+
+  
+}

@@ -1,10 +1,7 @@
-#root{
-    color:red;
+body {
+  margin: 0;
+  overflow-y: auto;
+  color:#3c3c3c;
+  background-color:#fefefe;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 }
-.one {
-    width: 200px;
-    height: 200px;
-    font-size: 50px;
-    background: pink;
-}
-  
