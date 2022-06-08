@@ -2,14 +2,11 @@ import * as React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { NavigationAction } from './navigation.action'
-import './navigation.scss'
+import styles from './navigation.module.scss'
 
 import personImg from '../../assets/img/person.png'
 import listImg from '../../assets/img/list.png'
 import { Pages } from '@/router/index'
-
-let address = '地址123';
-let name = '用户123';
 
 export class NavigationPage extends React.Component {
 
@@ -24,20 +21,20 @@ export class NavigationPage extends React.Component {
   render() {
     const { location} = this.props
     return (
-        <div className="contents">
-            <div className="sidebar">
-              <div className="sidebar_menu">
-                <div className={location.pathname.match(/list/) ? 'sidebar_menu_item active' : 'sidebar_menu_item'}
+        <div className={styles.contents}>
+            <div className={styles.sidebar}>
+              <div className={styles.sidebar_menu}>
+                <div className={location.pathname.match(/list/) ? `${styles.sidebar_menu_item} ${styles.active}` : styles.sidebar_menu_item}
                      onClick={()=>this.pushList()}>
-                  <img alt="" className="icon" src={listImg} />
+                  <img alt="" className={styles.icon} src={listImg} />
                 </div>
-                <div className={location.pathname.match(/mypage/) ? 'sidebar_menu_item active' : 'sidebar_menu_item'}
+                <div className={location.pathname.match(/mypage/) ? `${styles.sidebar_menu_item} ${styles.active}`  : styles.sidebar_menu_item}
                      onClick={()=>this.pushMypage()}>
-                  <img alt="" className="icon" src={personImg} />
+                  <img alt="" className={styles.icon} src={personImg} />
                 </div>
               </div>
             </div>
-            <div className="contents_area">
+            <div className={styles.contents_area}>
               <Pages/>
             </div>
         </div>

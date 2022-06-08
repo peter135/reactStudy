@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { ListAction } from './list.action'
 
-import './list.scss'
+import styles from  './list.module.scss'
 import '../../assets/fontawesome/css/all.css'
 
 export class ListPage extends React.Component{
@@ -15,7 +15,9 @@ export class ListPage extends React.Component{
     render() {
 
       return ( 
-        <h1>ListPage</h1>
+        <div className={styles.list_area}>
+             <h1>ListPage</h1>
+        </div>
       )
     }
       
