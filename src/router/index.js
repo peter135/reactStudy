@@ -13,28 +13,19 @@ import privateRoutes from './routes/privateRoutes';
 import adminRoutes from './routes/adminRoutes';
 import AuthRoute from './authRoute';
 
-function App() {
+function Main() {
   return (
-    <Router>
       <Switch>
-        {publicRoutes.map(
-          ({path, component, ...routes}) => 
-            <Route key={path} path={path} component={component} {...routes}/>
+
+        {publicRoutes.map(({path, component, ...route}) => 
+            <Route key={path} path={path} component={component} {...route}/>
         )}
-        {/* {privateRoutes.map(
-          ({path, component, ...routes}) => 
-            <Route key={path} path={path} component={component} {...routes}/>
-        )} */}
+
         {privateRoutes.map(
             (route) => <AuthRoute key={route.path} routeRole={'user'} {...route}/>
         )}
-        {/* {adminRoutes.map(
-          ({path, component, ...routes}) => 
-            <Route key={path} path={path} component={component} {...routes}/>
-        )} */}
       </Switch>
-    </Router>
   );
 }
 
-export default App;
+export default Main;

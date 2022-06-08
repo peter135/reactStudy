@@ -3,7 +3,7 @@ import Admin from '../pages/admin';
 
 const adminRoutes = [
   {
-    path: '/admin',
+    path: '/page/admin',
     component: Admin,
     exact: true,
     role: 'admin',       // 需要的权限是admin
