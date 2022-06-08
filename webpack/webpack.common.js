@@ -4,9 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (webpackEnv) => {
 
-    const isEnvDevelopment = webpackEnv === 'development';
-    const isEnvProduction = webpackEnv === 'production';
-
     return {
         mode:webpackEnv,
         entry:'./src/index.js',
@@ -17,8 +14,12 @@ module.exports = (webpackEnv) => {
         module:{
             rules:[
                {
-                   test:/.css$/i,
+                   test:/\.css$/i,
                    use:["style-loader", "css-loader" ]
+               },
+               {
+                  test: /\.s[ac]ss$/i,
+                  use: ["style-loader","css-loader","sass-loader"],
                },
                {
                    test: /\.(png|svg|jpg|jpeg|gif)$/,

@@ -1,0 +1,40 @@
+.list_area {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .title {
+    background-color:  #28262a;
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    min-height:30px;
+  }
+
+  .search {
+    min-height: 50px;
+    flex:1;
+    margin: 5px;
+    display: flex;
+    .fas {
+      position: absolute;
+      margin-top: 16px;
+      margin-left: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    input {
+      flex: 1 1;
+      padding: 5px 5px 5px 35px;
+      border: solid 1px grey;
+      border-radius: 5px;
+      max-height: 40px;
+      font-size: 16px;
+      margin: 5px 0 5px 0;
+    }
+  }
+
+
+}
