@@ -25,18 +25,6 @@ export class NavigationPage extends React.Component {
     const { location} = this.props
     return (
         <div className="contents">
-          <div className="header">
-            <div className="header_content">
-              <div className="header_content_profile">
-                  <div>
-                    <span className="name">{name}</span>
-                    <br/>
-                    <span className="address">{address}</span>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div className="body">
             <div className="sidebar">
               <div className="sidebar_menu">
                 <div className={location.pathname.match(/list/) ? 'sidebar_menu_item active' : 'sidebar_menu_item'}
@@ -52,7 +40,6 @@ export class NavigationPage extends React.Component {
             <div className="contents_area">
               <Pages/>
             </div>
-          </div>
         </div>
     )
   }
