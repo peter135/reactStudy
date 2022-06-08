@@ -8,6 +8,7 @@ import {
 
 import AuthRoute from './authRoute';
 import NotFound404 from '@/pages/notFound/notFound'
+import PageNotFound404 from '@/pages/notFound/pageNotFound'
 import Login from '@/pages/login/login'
 import { NavigationContainer } from '@/pages/navigation/navigation.page'
 import { ListPageContainer } from '@/pages/list/list.page'
@@ -29,9 +30,7 @@ const mainRoutes = [
     exact: true,
   },
   {
-    path: '*',
     component: NotFound404,
-    exact: true,
   },
 
 ];
@@ -52,8 +51,8 @@ const pageRoutes = [
     backUrl: '/login'   // 不满足权限跳转的路由
   },
   {
-    path: '/page/*',
-    component: NotFound404,
+    role: 'user',    
+    component: PageNotFound404,
   },
 
 ];
