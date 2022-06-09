@@ -14,6 +14,7 @@ export default class LoginPage extends React.Component {
 
        return (
          <div className={styles.content}>
+            <div>Login Page</div>
              <form onSubmit={(event)=>this.handleSubmit(event)} >
                <div className={styles.formItem}>
                 <span>用户名: </span> 

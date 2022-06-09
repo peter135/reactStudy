@@ -27,6 +27,15 @@ export class NavigationAction {
         }
       },
 
+      pushUser:()=> {
+        return async (dispatcher) => {
+          dispatcher(
+            push('/page/user')
+          )
+        }
+      },
+      
+
    }   
 
 }

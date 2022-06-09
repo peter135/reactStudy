@@ -12,6 +12,7 @@ import PageNotFound404 from '@/pages/notFound/pageNotFound'
 import { NavigationContainer } from '@/pages/navigation/navigation.page'
 import { ListPageContainer } from '@/pages/list/list.page'
 import { MyPageContainer } from '@/pages/mypage/mypage.page'
+import User from '@/pages/User/user'
 import Login from '@/pages/login/login'
 import Settings from '@/pages/settings/settings'
 
@@ -58,6 +59,14 @@ const pageRoutes = [
     backUrl: '/login'   // 不满足权限跳转的路由
   },
   {
+    path: '/page/user',
+    key:'User',
+    component: User,
+    exact: true,
+    role: ['admin','user'],       // 当前路由需要的角色权限
+    backUrl: '/login'   // 不满足权限跳转的路由
+  },
+  {
     path: '/page/mypage',
     key:'MyPageContainer',
     component: MyPageContainer,
@@ -66,8 +75,9 @@ const pageRoutes = [
     backUrl: '/login'   // 不满足权限跳转的路由
   },
   {
+    path: '/page/*',   
     key:'PageNotFound404',
-    role: ['admin','user'],    
+    role: ['admin','user'], 
     component: PageNotFound404,
   },
 

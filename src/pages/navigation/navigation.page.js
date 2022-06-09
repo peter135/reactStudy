@@ -22,6 +22,10 @@ export class NavigationPage extends React.Component {
 
   }
 
+  pushUser() {
+    this.props.actions.pushUser()
+  }
+
   render() {
     const { location} = this.props
     return (
@@ -39,6 +43,10 @@ export class NavigationPage extends React.Component {
                 <div className={location.pathname.match(/settings/) ? `${styles.sidebar_menu_item} ${styles.active}` : styles.sidebar_menu_item}
                      onClick={()=>this.pushSettings()}>
                     <i className={`fas fa-gem fa-lg `} style={{color:'#fff'}}></i>
+                </div>
+                <div className={location.pathname.match(/user/) ? `${styles.sidebar_menu_item} ${styles.active}` : styles.sidebar_menu_item}
+                     onClick={()=>this.pushUser()}>
+                    <i className={`fas fa-user fa-lg `} style={{color:'#fff'}}></i>
                 </div>
               </div>
             </div>
