@@ -9,7 +9,7 @@ export default class LoginPage extends React.Component {
     localStorage.setItem('role', 'admin');
 
     const redirect =  this.props.location.search?.split('=')
-    if(redirect.length>0){
+    if(redirect && redirect.length>1){
       this.props.history.push(redirect[1] ) 
     }else{
       this.props.history.push('/' ) 
