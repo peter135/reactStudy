@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { ListAction } from './list.action'
 
 import styles from  './list.module.scss'
-import '../../assets/fontawesome/css/all.css'
+import '@/assets/fontawesome/css/all.css'
 
 export class ListPage extends React.Component{
   
@@ -29,6 +29,8 @@ export class ListPage extends React.Component{
     }
   }
   
+
+
   export const ListPageContainer = connect(
     mapStateToProps,
     dispatch => ({ actions: bindActionCreators(ListAction.actions, dispatch) })

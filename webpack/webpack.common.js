@@ -51,7 +51,7 @@ module.exports = (webpackEnv) => {
         plugins:[
           new CleanWebpackPlugin(),
           new HtmlWebpackPlugin({
-            template: path.resolve(__dirname,'../public/index.ejs'),
+            template: path.resolve(__dirname,'../public/index.html'),
             filename: 'index.html',
             inject: 'body',
             minify: {

@@ -19,6 +19,14 @@ export class NavigationAction {
         }
       },
 
+      pushSettings:()=> {
+        return async (dispatcher) => {
+          dispatcher(
+            push('/page/settings')
+          )
+        }
+      },
+
    }   
 
 }
