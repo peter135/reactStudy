@@ -9,10 +9,11 @@ import {
 import AuthRoute from './authRoute';
 import NotFound404 from '@/pages/notFound/notFound'
 import PageNotFound404 from '@/pages/notFound/pageNotFound'
-import Login from '@/pages/login/login'
 import { NavigationContainer } from '@/pages/navigation/navigation.page'
 import { ListPageContainer } from '@/pages/list/list.page'
 import { MyPageContainer } from '@/pages/mypage/mypage.page'
+import Login from '@/pages/login/login'
+import Settings from '@/pages/settings/settings'
 
 const mainRoutes = [
   {
@@ -45,7 +46,15 @@ const pageRoutes = [
     key:'ListPageContainer',
     component: ListPageContainer,
     exact: true,
-    role: 'user',       // 当前路由需要的角色权限
+    role: ['admin','user'],       // 当前路由需要的角色权限
+    backUrl: '/login'   // 不满足权限跳转的路由
+  },
+  {
+    path: '/page/settings',
+    key:'Settings',
+    component: Settings,
+    exact: true,
+    role: ['admin','user'],       // 当前路由需要的角色权限
     backUrl: '/login'   // 不满足权限跳转的路由
   },
   {
@@ -53,12 +62,12 @@ const pageRoutes = [
     key:'MyPageContainer',
     component: MyPageContainer,
     exact: true,
-    role: 'admin',       // 当前路由需要的角色权限
+    role: ['admin'],       // 当前路由需要的角色权限
     backUrl: '/login'   // 不满足权限跳转的路由
   },
   {
     key:'PageNotFound404',
-    role: 'user',    
+    role: ['admin','user'],    
     component: PageNotFound404,
   },
 
@@ -77,7 +86,7 @@ export  const  Main = ()=> {
 export  const  Pages = ()=> {
   return (
       <Switch>
-        {pageRoutes.map( (route) => <AuthRoute key={route.key} routeRole={'user'} {...route}/> )}
+        {pageRoutes.map( (route) => <AuthRoute key={route.key} routeRole={route.role} {...route}/> )}
       </Switch>
   );
 }
