@@ -7,7 +7,14 @@ export default class LoginPage extends React.Component {
   handleSubmit (event)  {
     event.preventDefault();
     localStorage.setItem('role', 'admin');
-    this.props.history.push('/page/mypage') 
+
+    const redirect =  this.props.location.search?.split('=')
+    if(redirect.length>0){
+      this.props.history.push(redirect[1] ) 
+    }else{
+      this.props.history.push('/' ) 
+    }
+
   }
 
   render(){

@@ -32,7 +32,6 @@ const mainRoutes = [
     path: '/Login',
     key:'Login',
     component: Login,
-    exact: true,
   },
   {
     key:'NotFound404',
