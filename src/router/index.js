@@ -10,7 +10,7 @@ import AuthRoute from './authRoute';
 import NotFound404 from '@/pages/notFound/notFound'
 import PageNotFound404 from '@/pages/notFound/pageNotFound'
 import { NavigationContainer } from '@/pages/navigation/navigation.page'
-import { ListPageContainer } from '@/pages/list/list.page'
+import ListPageContainer  from '@/pages/list/list.page'
 import { MyPageContainer } from '@/pages/mypage/mypage.page'
 import User from '@/pages/User/user'
 import Login from '@/pages/login/login'

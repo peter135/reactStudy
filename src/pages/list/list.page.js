@@ -1,38 +1,25 @@
-import * as React from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import { ListAction } from './list.action'
+import React from 'react';
+import useLocalStorage from 'use-local-storage';
+import './list.scss';
 
-import styles from  './list.module.scss'
-import '@/assets/fontawesome/css/all.css'
 
-export class ListPage extends React.Component{
-  
-    componentDidMount() {
+function App() {
+  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
 
-    }
-  
-    render() {
-
-      return ( 
-        <div className={styles.list_area}>
-             <h1>ListPage</h1>
-        </div>
-      )
-    }
-      
+  const switchTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
   }
-  
-  function mapStateToProps(state) {
-    return {
-      listDto: state.listDto,
-    }
-  }
-  
 
+  return (
+    <div className="app" data-theme={theme}>
+      <span>Easy Darkmode and Themes in React</span>
+      <button onClick={switchTheme}>
+        Switch to {theme === 'light' ? 'Dark' : 'Light'} Theme
+      </button>
+    </div>
+  );
+}
 
-  export const ListPageContainer = connect(
-    mapStateToProps,
-    dispatch => ({ actions: bindActionCreators(ListAction.actions, dispatch) })
-  )(ListPage)
-  
+export default App;

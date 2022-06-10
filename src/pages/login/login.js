@@ -34,7 +34,7 @@ export default class LoginPage extends React.Component {
                </div>
                <button type="submit">登录</button>
              </form>
-             <Loading/>
+             {/* <Loading/> */}
          </div>
        );
   }
