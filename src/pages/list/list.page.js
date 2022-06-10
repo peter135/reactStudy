@@ -1,6 +1,6 @@
 import React from 'react';
 import useLocalStorage from 'use-local-storage';
-import './list.scss';
+import styles from './list.module.scss';
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   }
 
   return (
-    <div className="app" data-theme={theme}>
+    <div className={styles.app} data-theme={theme}>
       <span>Easy Darkmode and Themes in React</span>
       <button onClick={switchTheme}>
         Switch to {theme === 'light' ? 'Dark' : 'Light'} Theme
