@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './login.module.scss'
- 
+import Loading from "@/components/loading/loading";
+
 export default class LoginPage extends React.Component {
 
 
@@ -33,8 +34,8 @@ export default class LoginPage extends React.Component {
                </div>
                <button type="submit">登录</button>
              </form>
+             <Loading/>
          </div>
-
        );
   }
 
