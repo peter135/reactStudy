@@ -1,6 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin');
+const glob = require('glob'); // 文件匹配模式
+
+function resolve(dir){
+  return path.join(__dirname, dir);
+}
+
+const PATHS = {
+  src: resolve('../src')
+}
 
 module.exports = (webpackEnv) => {
 
@@ -8,18 +20,18 @@ module.exports = (webpackEnv) => {
         mode:webpackEnv,
         entry:'./src/index.js',
         output:{
-            filename:'main.js',
+            filename: 'js/[name].js',
             path:path.resolve(__dirname, '../dist'),
         },
         module:{
             rules:[
                {
                    test:/\.css$/i,
-                   use:["style-loader", "css-loader" ]
+                   use:[ MiniCssExtractPlugin.loader, "css-loader" ]
                },
                {
                   test: /\.s[ac]ss$/i,
-                  use: ["style-loader","css-loader","sass-loader"],
+                  use: [ MiniCssExtractPlugin.loader,"css-loader","sass-loader"],
                },
                {
                    test: /\.(png|svg|jpg|jpeg|gif)$/,
@@ -50,6 +62,9 @@ module.exports = (webpackEnv) => {
         },
         plugins:[
           new CleanWebpackPlugin(),
+          new MiniCssExtractPlugin({ // 添加插件
+            filename: '[name].[hash:8].css'
+          }),
           new HtmlWebpackPlugin({
             template: path.resolve(__dirname,'../public/index.html'),
             filename: 'index.html',
@@ -65,7 +80,46 @@ module.exports = (webpackEnv) => {
             '@': path.resolve(__dirname, '../src'),
             '~': path.resolve(__dirname, '../img'),
           }
-        }
+        },
+        optimization: {
+          minimize: true,
+          minimizer: [
+            // 添加 css 压缩配置
+            new OptimizeCssAssetsPlugin({}),
+            new TerserPlugin({})
+          ],
+          splitChunks: {
+            cacheGroups: { // 配置提取模块的方案
+              default: false,
+              styles: {
+                  name: 'styles',
+                  test: /\.(s?css|less|sass)$/,
+                  chunks: 'all',
+                  enforce: true,
+                  priority: 10,
+                },
+                common: {
+                  name: 'chunk-common',
+                  chunks: 'all',
+                  minChunks: 2,
+                  maxInitialRequests: 5,
+                  minSize: 0,
+                  priority: 1,
+                  enforce: true,
+                  reuseExistingChunk: true,
+                },
+                vendors: {
+                  name: 'chunk-vendors',
+                  test: /[\\/]node_modules[\\/]/,
+                  chunks: 'all',
+                  priority: 2,
+                  enforce: true,
+                  reuseExistingChunk: true,
+                },
+               // ... 根据不同项目再细化拆分内容
+            },
+          }
+        },
     };
 
 }
