@@ -11,12 +11,14 @@ export const Counter = () => {
     }
 
     return(
-        <div>
+        <div style={{'display':'flex',
+                     'flexDirection':"column",
+                     'alignItems':'center'}}>
             <p>You clicked {count} times</p>
-            <button onClick={() => setCount(count+1)}>
+            <button style={{'marginTop':'10px' }} onClick={() => setCount(count+1)}>
                 Click me
             </button>
-            <button onClick={handleAlertClick}>
+            <button style={{'marginTop':'10px' }} onClick={handleAlertClick}>
                 Show alert
             </button>
         </div>

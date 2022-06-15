@@ -1,6 +1,7 @@
 import React from 'react';
 import useLocalStorage from 'use-local-storage';
 import styles from './list.module.scss';
+import {Counter} from '@/components/hooks/index';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <button onClick={switchTheme}>
         Switch to {theme === 'light' ? 'Dark' : 'Light'} Theme
       </button>
+     <Counter/>
     </div>
   );
 }
