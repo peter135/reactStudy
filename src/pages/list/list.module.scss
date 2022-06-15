@@ -6,6 +6,7 @@
   font-size: large;
   font-weight: bold;
   transition: all .5s;
+  overflow-y: auto;
 
   button {
     color: var(--text-primary);
