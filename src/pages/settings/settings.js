@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./settings.css";
 import Modal from "@/components/modal/modal";
+import List from '@/components/virtual_list/index'
 
 function Settings() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -18,6 +19,9 @@ function Settings() {
       </button>
 
       {modalOpen && <Modal setOpenModal={setModalOpen} />}
+
+      <List/>
+
     </div>
   );
 }

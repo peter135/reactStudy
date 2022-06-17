@@ -26,7 +26,7 @@ function App() {
           <button onClick={switchTheme}>
             Switch to {theme === 'light' ? 'Dark' : 'Light'} Theme
           </button>
-           <Counter/>
+           {/* <Counter/>
            <RefTutorial/>
            <ReducerTutorial/>
            <CallBackTutorial/>
@@ -34,7 +34,7 @@ function App() {
            <EffectTutorial/>
            <ImperativeHandle/>
            <LayoutEffectTutorial/>
-           <MemoTutorial/>
+           <MemoTutorial/> */}
     </div>
   );
 }
