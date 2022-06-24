@@ -42,7 +42,7 @@ export class NavigationPage extends React.Component {
                 </div>
                 <div className={location.pathname.match(/settings/) ? `${styles.sidebar_menu_item} ${styles.active}` : styles.sidebar_menu_item}
                      onClick={()=>this.pushSettings()}>
-                    <i className={`fas fa-gem fa-lg `} style={{color:'#fff'}}></i>
+                    <i className={`fas fa-hammer fa-lg `} style={{color:'#fff'}}></i>
                 </div>
                 <div className={location.pathname.match(/user/) ? `${styles.sidebar_menu_item} ${styles.active}` : styles.sidebar_menu_item}
                      onClick={()=>this.pushUser()}>

@@ -48,9 +48,6 @@ function App() {
              <div className={`col-12 col-md-4 ${styles._green}`}>.col-6 .col-md-4</div>
              <div className={`col-12 col-md-4 ${styles._blue}`}>.col-6 .col-md-4</div>
         </div>
-        <div className="d-md-none">
-           <i className={`fas fa-bars fa-lg `} style={{color:'#000'}}></i>
-      </div>
      </div>
     )
   }
@@ -69,7 +66,7 @@ function App() {
             </div>
 
              <div className="d-md-none" style={{marginRight:10}}>
-               <i className={`fas fa-bars fa-lg `} style={{color:'#fff'}}></i>
+               <i className={`fas fa-barcode fa-lg `} style={{color:'#fff'}}></i>
             </div>
          </div>
      </div>
