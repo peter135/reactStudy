@@ -36,10 +36,27 @@ function App() {
   
   }  
 
+  function BootStrapDemo() {
+    return (
+      <div className="container-fluid">
+         <div className="row ">
+             <div className={`col-4 col-md-8 ${styles._red}`}>.col-4 .col-md-8</div>
+             <div className={`col-4 col-md-4 ${styles._green}`}>.col-4 .col-md-4</div>
+         </div>
+        <div className="row">
+             <div className={`col-6 col-md-4 ${styles._red}`}>.col-6 .col-md-4</div>
+             <div className={`col-6 col-md-4 ${styles._green}`}>.col-6 .col-md-4</div>
+             <div className={`col-6 col-md-4 ${styles._blue}`}>.col-6 .col-md-4</div>
+        </div>
+     </div>
+    )
+  }
+
   return (
     <>
       {/* <ThemeSwitch/> */}
-      <DropDown/>
+      {/* <DropDown/> */}
+      <BootStrapDemo/>
     </>
 
   )
