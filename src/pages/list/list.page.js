@@ -66,7 +66,7 @@ function App() {
             </div>
 
              <div className="d-md-none" style={{marginRight:10}}>
-               <i className={`fas fa-barcode fa-lg `} style={{color:'#fff'}}></i>
+               <i className={`fas fa-bars fa-lg `} style={{color:'#fff'}}></i>
             </div>
          </div>
      </div>
