@@ -36,7 +36,7 @@ function App() {
   
   }  
 
-  function BootStrapDemo() {
+  function BootStrapGrid() {
     return (
       <div className="container-fluid">
          <div className="row ">
@@ -48,15 +48,41 @@ function App() {
              <div className={`col-12 col-md-4 ${styles._green}`}>.col-6 .col-md-4</div>
              <div className={`col-12 col-md-4 ${styles._blue}`}>.col-6 .col-md-4</div>
         </div>
+        <div className="d-md-none">
+           <i className={`fas fa-bars fa-lg `} style={{color:'#000'}}></i>
+      </div>
      </div>
     )
   }
+
+  function BootStrapNavbar() {
+    return (
+      <div>
+         <div className= {`d-flex flex-row justify-content-between justify-content-md-start ${styles._green}`}>
+
+            <span style={{marginLeft:10, color:'white'}}>Navbar</span>
+
+            <div className="d-none d-md-block">
+                 <span style={{marginLeft:10, color:'white'}}>About</span>
+                 <span style={{marginLeft:10, color:'white'}}>Home</span>
+                 <span style={{marginLeft:10, color:'white'}}>Settings</span>
+            </div>
+
+             <div className="d-md-none" style={{marginRight:10}}>
+               <i className={`fas fa-bars fa-lg `} style={{color:'#fff'}}></i>
+            </div>
+         </div>
+     </div>
+    )
+  }
+
 
   return (
     <>
       {/* <ThemeSwitch/> */}
       {/* <DropDown/> */}
-      <BootStrapDemo/>
+      {/* <BootStrapGrid/> */}
+      <BootStrapNavbar/>
     </>
 
   )
