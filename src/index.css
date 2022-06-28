@@ -19,3 +19,13 @@ body {
   --text-secondary: grey;
   --accent: darkred;
 }
+
+button {
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  background-color:#0a0a23;
+  color: #fff;
+  border:none;
+  border-radius:3px;
+}
