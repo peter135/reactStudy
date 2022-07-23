@@ -21,7 +21,7 @@ module.exports = (webpackEnv) => {
         entry:'./src/index.js',
         output:{
             filename: 'js/[name].js',
-            path:path.resolve(__dirname, '../dist'),
+            path:path.resolve(__dirname, '../docs'),
         },
         module:{
             rules:[
