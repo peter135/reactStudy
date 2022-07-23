@@ -1,7 +1,10 @@
-import React from 'react';
+import React ,{useState}from 'react';
 import styles from './user.module.scss'
 
 export default function User() {
+
+
+    const [src, setSrc] = useState('');
 
      //============绘制图片
      const drawImage =()=> {
@@ -53,8 +56,14 @@ export default function User() {
                     ctx.drawImage(img2, 0, canvasHeightImg1 + FontHeight, canvasWidth, canvasHeightImg2)
         
                     const  imageURL = canvas.toDataURL("image/png")
+
+                    setSrc(imageURL)
+                    // var dataImg = new Image()
+                    // dataImg.src = imageURL
+                    // document.body.appendChild(dataImg)
+
                     // console.log('imageURL',imageURL)
-                    saveAs(imageURL,'collection.png')
+                    // saveAs(imageURL,'collection.png')
                     // let img3 = new Image()
                     // document.getElementsByClassName("box")[0].append(img3)
                     // img3.src = imageURL
@@ -123,7 +132,7 @@ export default function User() {
            <button type="submit" onClick={()=>setRole('admin')}>admin</button>
            <button type="submit" onClick={()=>setRole('')}>normal</button>
            <button type="submit" onClick={()=>drawImage()}>download</button>
-
+           {src && <img src={src} style={{width:100,height:100}}/>}
       </div>
     );
 
