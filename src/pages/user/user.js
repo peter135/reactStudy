@@ -131,7 +131,7 @@ export default function User() {
            <button type="submit" onClick={()=>setRole('user')}>user</button>
            <button type="submit" onClick={()=>setRole('admin')}>admin</button>
            <button type="submit" onClick={()=>setRole('')}>normal</button>
-           <button type="submit" onClick={()=>drawImage()}>download</button>
+           <button type="submit" onClick={()=>drawImage()}>saveImg</button>
            {src && <img src={src} style={{width:100,height:100}}/>}
       </div>
     );
