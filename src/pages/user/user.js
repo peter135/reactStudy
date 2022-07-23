@@ -114,8 +114,6 @@ export default function User() {
             localStorage.removeItem('role');
         }
 
-        drawImage()
-
     }
 
     return (
@@ -124,6 +122,7 @@ export default function User() {
            <button type="submit" onClick={()=>setRole('user')}>user</button>
            <button type="submit" onClick={()=>setRole('admin')}>admin</button>
            <button type="submit" onClick={()=>setRole('')}>normal</button>
+           <button type="submit" onClick={()=>drawImage()}>download</button>
 
       </div>
     );
